@@ -48,6 +48,7 @@ button {
   border-radius: 10px;
   font-size: 20px;
   margin-top: 8px;
+  visibility: hidden; /* 평소에는 보이지 않음 */
 }
 
 .game__score {
@@ -60,13 +61,14 @@ button {
   /* border: 3px solid white; */
   background-color: black;
   border-radius: 50%;
+  visibility: hidden; /* 평소에는 보이지 않음 */
 }
 
 .game__field {
+  position: relative;
   width: 100%;
   height: 100%;
   margin-top: 70px;
-  opacity: 0.4;
 }
 
 .popup {
