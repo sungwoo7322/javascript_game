@@ -49,6 +49,9 @@ button {
   font-size: 20px;
   margin-top: 8px;
   visibility: hidden; /* 평소에는 보이지 않음 */
+  /* 마우스 선택 x */
+  user-select: none;
+  cursor: auto;
 }
 
 .game__score {
@@ -62,6 +65,9 @@ button {
   background-color: black;
   border-radius: 50%;
   visibility: hidden; /* 평소에는 보이지 않음 */
+  /* 마우스 선택 x */
+  user-select: none;
+  cursor: auto;
 }
 
 .game__field {
@@ -100,4 +106,16 @@ button {
 .popup__message {
   display: block;
   font-size: 24px;
+}
+
+.potato,
+.wheat,
+.boar {
+  transition: transform 100ms ease-in;
+}
+
+.potato:hover,
+.wheat:hover,
+.boar:hover {
+  transform: scale(1.1);
 }
