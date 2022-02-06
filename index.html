@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Game</title>
     <link rel="stylesheet" href="style.css" />
-    <script src="main.js" defer></script>
+    <script type="module" src="src/main.js" defer></script>
     <script src="https://kit.fontawesome.com/06ed6e9a49.js" crossorigin="anonymous"></script>
     
     <!-- favicon 에러 해결 -->
@@ -22,7 +22,10 @@
             </span>
             <span class="game__score">3</span>
         </header>
-        <section class="game__field"></section>
+        <section class="game__field">
+            <canvas class="canvas-field">
+        </canvas>
+        </section>
     </section>
     <section class="popup popup--hide">
         <button class="popup__refresh">
