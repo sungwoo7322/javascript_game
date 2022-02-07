@@ -13,22 +13,22 @@
 
 게임 시작
 
-![image](https://user-images.githubusercontent.com/57259056/152687409-8b16d25b-6e02-482b-b741-cc6119bf18e6.png)
+![image](https://user-images.githubusercontent.com/57259056/152716188-e8d809bd-47c3-4a34-ba5e-7f72dd2b216f.png)
 
 
 승리
 
-![image](https://user-images.githubusercontent.com/57259056/152687455-47d5e2c8-38a8-43ce-9bc6-75e5caa2a2fc.png)
+![image](https://user-images.githubusercontent.com/57259056/152716151-7a184a2c-9f33-4ec6-9466-c23f9ae2ee5f.png)
 
 
 시간 초과
 
-![image](https://user-images.githubusercontent.com/57259056/152687427-0965a0f5-4185-4278-84b7-e22175fe4ea1.png)
+![image](https://user-images.githubusercontent.com/57259056/152716224-8811c6a2-7dcf-456d-84d4-3a554342705b.png)
 
 
 패배(멧돼지 클릭)
 
-![image](https://user-images.githubusercontent.com/57259056/152687522-fc5efc71-8ca3-49ff-8f34-3e81ce1693eb.png)
+![image](https://user-images.githubusercontent.com/57259056/152716258-c35b69c8-55ab-404b-8aa4-b8a6f17f7475.png)
 
 
 다시 시작
