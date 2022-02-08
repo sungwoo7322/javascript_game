@@ -6,12 +6,13 @@ import GameBuilder, { Reason } from './game.js';
 // 팝업 클릭 되면 startGame 호출
 const gameFinishBanner = new PopUp();
 
-// 배정된 숫자, 시간
+// 배정된 시간, 숫자
 const game = new GameBuilder()
-.withGameDuration(5)
-.withPotatoCount(3)
-.withWheatCount(3)
-.withBoarCount(3)
+
+.withGameDuration()
+.withPotatoCount()
+.withWheatCount()
+.withBoarCount()
 .build();
 
 game.setGameStopListener(reason => {

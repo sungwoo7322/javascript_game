@@ -22,12 +22,16 @@ export class Field {
         this.field.addEventListener('click', this.onClick);
     }
 
-    init() {
+    // setGameState(started) {
+    //     this.started = started;
+    // }
+
+    init(potatoCount, wheatCount, boarCount) {
         // 누를 때마다 필드 초기화
         this.field.innerHTML = '';
-        this._addItem('potato', this.potatoCount, 'img/potatoImg.png');
-        this._addItem('wheat', this.wheatCount, 'img/wheatImg.png');
-        this._addItem('boar', this.boarCount, 'img/boarImg.png');
+        this._addItem('potato', potatoCount, 'img/potatoImg.png');
+        this._addItem('wheat', wheatCount, 'img/wheatImg.png');
+        this._addItem('boar', boarCount, 'img/boarImg.png');
     }
 
     setClickListener(onItemClick) {

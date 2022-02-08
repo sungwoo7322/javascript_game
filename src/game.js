@@ -11,27 +11,29 @@ export const Reason = Object.freeze({
 
 // 빌더 패턴
 export default class GameBuilder {
+    // 시간
     withGameDuration(duration) {
         this.gameDuration = duration;
         return this;
     }
-
+    // 감자 수
     withPotatoCount(num) {
         this.potatoCount = num;
         return this;
     }
-
+    // 밀 수
     withWheatCount(num) {
         this.wheatCount = num;
         return this;
     }
-
+    // 멧돼지 수
     withBoarCount(num) {
         this.boarCount = num;
         return this;
     }
 
     build() {
+        
         return new Game(
             this.gameDuration,
             this.potatoCount,
@@ -41,7 +43,7 @@ export default class GameBuilder {
     }
 }
 
-class Game {
+export class Game {
     constructor(gameDuration, potatoCount, wheatCount, boarCount) {
         this.gameDuration = gameDuration;
         this.potatoCount = potatoCount;
@@ -52,6 +54,7 @@ class Game {
         this.gameTimer = document.querySelector('.game__timer');
         this.gameScore = document.querySelector('.game__score');
         this.gameBtn = document.querySelector('.game__button');
+        this.gameStage = document.querySelector('.game__stage');
         this.gameBtn.addEventListener('click', () => {
             if (this.started) {
                 this.stop(Reason.cancel);
@@ -59,13 +62,15 @@ class Game {
                 this.start();
             }
         });
-
+        
         this.gameField = new Field(potatoCount, wheatCount, boarCount);
         this.gameField.setClickListener(this.onItemClick);
 
         this.started = false;
         this.score = 0;
         this.timer = undefined;
+
+        this.stage = 1;
     }
 
     setGameStopListener(onGameStop) {
@@ -79,6 +84,7 @@ class Game {
         this.showtimerAndScore(); // 타이머, 스코어 보이게
         this.startGameTimer(); // 타이머 시작
         sound.playBg();
+        this.stage;
     }
 
     stop(reason) {
@@ -87,6 +93,15 @@ class Game {
         this.hideGameButton(); // 시작 버튼 숨김
         sound.playBgStop(); // 게임이 끝나면 브금 끄기
         this.onGameStop && this.onGameStop(reason);
+
+        // if (reason === Reason.win) {
+        //     this.updateRecord(
+        //         this.gameDuration,
+        //         this.potatoCount,
+        //         this.wheatCount,
+        //         this.boarCount
+        //     );
+        // }
     }
 
     onItemClick = (item) => {
@@ -97,10 +112,12 @@ class Game {
             this.score++; // 스코어 1씩 증가
             this.updateScoreBoard(); // 증가된 스코어 업데이트
             if(this.score === this.potatoCount + this.wheatCount) { // 스코어가 감자 갯수랑 같다면
+                this.stage++; // 스테이지 1 추가
                 this.stop(Reason.win); // 게임 승리
             }
         } else if (item === ItemType.boar) {
             this.stop(Reason.lose);
+            this.stage = 1;
         }
     }
 
@@ -119,6 +136,7 @@ class Game {
     showtimerAndScore() {
         this.gameTimer.style.visibility = 'visible';
         this.gameScore.style.visibility = 'visible';
+        this.gameStage.style.visibility = 'visible';
     }
 
     startGameTimer() {
@@ -150,15 +168,41 @@ class Game {
     }
 
     initGame() {
-        // 스코어 초기화
-        this.score = 0
-        // 게임 스코어 계산
-        this.gameScore.innerText = this.potatoCount + this.wheatCount;
-        // 작물과 멧돼지를 생성한 뒤 field에 추가한다.
-        // console.log(fieldRect);
+
+        if (this.stage === 1) {
+            this.gameDuration = 10,
+            this.potatoCount = 1,
+            this.wheatCount = 1,
+            this.boarCount = 1
+            // 스코어 초기화
+            this.score = 0
+            // 게임 스코어 계산
+            this.gameScore.innerText = this.potatoCount + this.wheatCount;
+            // 작물과 멧돼지를 생성한 뒤 field에 추가한다.
+
+            // 게임 스테이지의 텍스트를 this.stage로 쓴다.
+            this.gameStage.innerText = this.stage;
+        
+            this.gameField.init(this.potatoCount, this.wheatCount, this.boarCount);
+        } else if (this.stage === 2) {
+            this.gameDuration = 10,
+            this.potatoCount = 2,
+            this.wheatCount = 2,
+            this.boarCount = 2
+            // 스코어 초기화
+            this.score = 0
+            // 게임 스코어 계산
+            this.gameScore.innerText = this.potatoCount + this.wheatCount;
+            // 작물과 멧돼지를 생성한 뒤 field에 추가한다.
+
+            // 게임 스테이지의 텍스트를 this.stage로 쓴다.
+            this.gameStage.innerText = this.stage;
+            
+            this.gameField.init(this.potatoCount, this.wheatCount, this.boarCount);
+        }
 
         // 게임 필드에 있는 init 호출 field.js 15번 째 줄
-        this.gameField.init();
+        // this.gameField.init();
     }
 
     updateScoreBoard() {
@@ -166,5 +210,19 @@ class Game {
         this.gameScore.innerText = this.potatoCount + this.wheatCount - this.score;
     }
 
+    // updateRecord = (gameDuration,potatoCount,wheatCount,boarCount) => {
+
+    //     this.score = 0
+    //     this.gameScore.innerText = this.potatoCount + this.wheatCount;
+
+    //     if (this.stage === 2) {
+    //         gameDuration + 10,
+    //         potatoCount + 5,
+    //         wheatCount + 5,
+    //         boarCount + 5
+    //     }
+
+    //     this.gameField.init();
+    // };
 
 }
