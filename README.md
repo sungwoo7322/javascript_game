@@ -36,3 +36,10 @@
 다시 시작
 
 ![image](https://user-images.githubusercontent.com/57259056/152687593-439f6fb9-74c4-4b36-8611-e0ed78f51c5b.png)
+
+
+추가 기능
+스테이지 생성으로 난이도 변경
+
+![image](https://user-images.githubusercontent.com/57259056/153003456-832a503a-df66-4517-b6be-2d60a60979ef.png)
+
