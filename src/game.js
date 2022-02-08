@@ -95,12 +95,7 @@ export class Game {
         this.onGameStop && this.onGameStop(reason);
 
         // if (reason === Reason.win) {
-        //     this.updateRecord(
-        //         this.gameDuration,
-        //         this.potatoCount,
-        //         this.wheatCount,
-        //         this.boarCount
-        //     );
+        //     this.updateRecord();
         // }
     }
 
@@ -169,11 +164,11 @@ export class Game {
 
     initGame() {
 
-        if (this.stage === 1) {
+        if (this.stage === 1) { 
             this.gameDuration = 10,
-            this.potatoCount = 1,
-            this.wheatCount = 1,
-            this.boarCount = 1
+            this.potatoCount = 3,
+            this.wheatCount = 3,
+            this.boarCount = 2
             // 스코어 초기화
             this.score = 0
             // 게임 스코어 계산
@@ -186,18 +181,39 @@ export class Game {
             this.gameField.init(this.potatoCount, this.wheatCount, this.boarCount);
         } else if (this.stage === 2) {
             this.gameDuration = 10,
-            this.potatoCount = 2,
-            this.wheatCount = 2,
-            this.boarCount = 2
-            // 스코어 초기화
+            this.potatoCount = 6,
+            this.wheatCount = 6,
+            this.boarCount = 4
             this.score = 0
-            // 게임 스코어 계산
             this.gameScore.innerText = this.potatoCount + this.wheatCount;
-            // 작물과 멧돼지를 생성한 뒤 field에 추가한다.
-
-            // 게임 스테이지의 텍스트를 this.stage로 쓴다.
             this.gameStage.innerText = this.stage;
-            
+            this.gameField.init(this.potatoCount, this.wheatCount, this.boarCount);
+        } else if (this.stage === 3) {
+            this.gameDuration = 15,
+            this.potatoCount = 10,
+            this.wheatCount = 13,
+            this.boarCount = 7
+            this.score = 0
+            this.gameScore.innerText = this.potatoCount + this.wheatCount;
+            this.gameStage.innerText = this.stage;
+            this.gameField.init(this.potatoCount, this.wheatCount, this.boarCount);
+        } else if (this.stage === 4) {
+            this.gameDuration = 20,
+            this.potatoCount = 19,
+            this.wheatCount = 13,
+            this.boarCount = 10
+            this.score = 0
+            this.gameScore.innerText = this.potatoCount + this.wheatCount;
+            this.gameStage.innerText = this.stage;
+            this.gameField.init(this.potatoCount, this.wheatCount, this.boarCount);
+        } else if (this.stage === 5) {
+            this.gameDuration = 20,
+            this.potatoCount = 25,
+            this.wheatCount = 18,
+            this.boarCount = 18
+            this.score = 0
+            this.gameScore.innerText = this.potatoCount + this.wheatCount;
+            this.gameStage.innerText = this.stage;
             this.gameField.init(this.potatoCount, this.wheatCount, this.boarCount);
         }
 
@@ -210,19 +226,26 @@ export class Game {
         this.gameScore.innerText = this.potatoCount + this.wheatCount - this.score;
     }
 
-    // updateRecord = (gameDuration,potatoCount,wheatCount,boarCount) => {
+    // updateRecord = () => {
+
+    //     this.gameDuration = 10
+
+    //     let potatoCount = this.potatoCount;
+    //     let wheatCount = this.wheatCount;
+    //     let boarCount = this.boarCount;
+    //     for (this.stage; this.stage >= 10; this.stage++) {
+    //         potatoCount = 3;
+    //         wheatCoun = 3;
+    //         boarCount = 2;
+    //     }
 
     //     this.score = 0
     //     this.gameScore.innerText = this.potatoCount + this.wheatCount;
+    //     this.gameStage.innerText = this.stage;
 
-    //     if (this.stage === 2) {
-    //         gameDuration + 10,
-    //         potatoCount + 5,
-    //         wheatCount + 5,
-    //         boarCount + 5
-    //     }
-
-    //     this.gameField.init();
+    //     this.gameField.init(potatoCount, wheatCount, boarCount);
+        
+        
     // };
 
 }

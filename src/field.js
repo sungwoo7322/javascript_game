@@ -5,7 +5,7 @@ import * as sound from './sound.js';
 const carrotSound = new Audio('./sound/carrot_pull.mp3');
 
 // 랜덤 지정된 x,y축에서 이미지 사이즈만큼
-const POTATO_SIZE = 100;
+const POTATO_SIZE = 80;
 
 export const ItemType = Object.freeze({
     potato: 'potato',
